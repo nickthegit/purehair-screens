@@ -1,16 +1,36 @@
 <template>
-  <h1>Quickstart mo fo</h1>
+  <main>
+    <nav>
+      <ul>
+        <li>
+          <nuxt-link to="/screen-1">Screen 1</nuxt-link>
+        </li>
+      </ul>
+    </nav>
+  </main>
 </template>
 
 <script>
-  import Logo from '~/components/Logo.vue'
-
   export default {
-    components: {
-      Logo
+    methods: {
+      toggleFullScreen() {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          }
+        }
+      }
     }
   }
 </script>
 
-<style>
+<style lang="scss" scoped>
+  main {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 40px;
+  }
 </style>
